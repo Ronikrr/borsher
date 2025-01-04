@@ -5,12 +5,12 @@ import Seconduray from '../../components/ui/seconduray';
 import Primary from '../../components/ui/primary';
 import { MdOutlineFileUpload } from 'react-icons/md';
 const Profile = () => {
-  
+
     const [totalShipping, setTotalShipping] = useState(0);
     // const handleShippingChange = (event) => {
     //     setTotalShipping(event.target.value);
     // };
-  // Retrieve stored data from localStorage or default to empty array and 1
+    // Retrieve stored data from localStorage or default to empty array and 1
     const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
     const storedProductNumber = parseInt(localStorage.getItem('currentProductNumber')) || 1;
 
@@ -42,9 +42,9 @@ const Profile = () => {
             number: formattedNumber
         };
 
-        const updatedProducts = [...products, newProduct];  
+        const updatedProducts = [...products, newProduct];
         setProducts(updatedProducts);
-        setCurrentProductNumber(currentProductNumber + 1); 
+        setCurrentProductNumber(currentProductNumber + 1);
 
         localStorage.setItem('products', JSON.stringify(updatedProducts));
         localStorage.setItem('currentProductNumber', currentProductNumber + 1);
@@ -60,9 +60,9 @@ const Profile = () => {
             cost: "",
             remark: "",
             date: "",
-            productTotal: "", 
+            productTotal: "",
             shipping: "",
-            totalCost: "", 
+            totalCost: "",
             image: null,
         }
     ]);
@@ -71,21 +71,21 @@ const Profile = () => {
     const handleLogoUpload = (event) => {
         const file = event.target.files[0];
         if (file) {
-            const newLogoUrl = URL.createObjectURL(file); 
+            const newLogoUrl = URL.createObjectURL(file);
             setUploadedLogo(newLogoUrl);
         }
     };
-  
+
     const getBackgroundColor = (color) => {
         switch (color) {
             case 'yellow':
-                return 'bg-yellow-300'; 
+                return 'bg-yellow-300';
             case 'white':
-                return 'bg-white'; 
+                return 'bg-white';
             case 'rose':
-                return 'bg-rose-300'; 
+                return 'bg-rose-300';
             case 'gold':
-                return 'bg-yellow-500'; 
+                return 'bg-yellow-500';
             default:
                 return 'bg-[rgb(239,244,251)]';
         }
@@ -96,7 +96,7 @@ const Profile = () => {
         const updatedFormData = [...formData];
         updatedFormData[index][name] = value;
 
-   
+
         if (name === 'cost' || name === 'shipping') {
             const { cost, shipping } = updatedFormData[index];
             const productTotal = parseFloat(cost || 0);
@@ -108,7 +108,7 @@ const Profile = () => {
         setFormData(updatedFormData);
     };
 
- 
+
     const handleImageChange = (index, event) => {
         const file = event.target?.files?.[0];
         if (file && (file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/gif') && file.size <= 1024 * 1024) {
@@ -120,7 +120,7 @@ const Profile = () => {
         }
     };
 
- 
+
     const handleAddClick = (e) => {
         e.preventDefault();
         setFormData([
@@ -135,17 +135,17 @@ const Profile = () => {
                 cost: "",
                 remark: "",
                 date: "",
-                productTotal: "", 
+                productTotal: "",
                 shipping: "",
-                totalCost: "", 
-                image: null, 
+                totalCost: "",
+                image: null,
             }
         ]);
     };
     // Retrieve shipping from localStorage
-    
 
-    
+
+
     const metalOptions = [
         { value: 'select', label: 'Select an option' },
         { value: 'Gold', label: 'Gold' },
@@ -213,7 +213,7 @@ const Profile = () => {
                                         />
                                     </div>
                                 )}
-                                
+
                             </div>
                         </div>
                     </div>
@@ -404,7 +404,7 @@ const Profile = () => {
 
                                     ))}
                                     <div className="flex justify-end gap-4">
-                                        <Seconduray label="Add" onClick={{ handleAddClick, addProduct }} />
+                                        <Seconduray label="Add" onClick={handleAddClick} />
                                         <Primary label="Export" />
                                     </div>
                                     <div className="flex flex-col w-full mt-5 space-y-6">
@@ -424,7 +424,7 @@ const Profile = () => {
                                                         type="number"
                                                         name="totalShipping"
                                                         value={totalShipping}
-                                                        onChange={handleShippingChange} 
+                                                        onChange={handleShippingChange}
                                                         placeholder="Shipping"
                                                     />
                                                 </div>
