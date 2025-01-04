@@ -7,10 +7,6 @@ import { MdOutlineFileUpload } from 'react-icons/md';
 const Profile = () => {
 
     const [totalShipping, setTotalShipping] = useState(0);
-    // const handleShippingChange = (event) => {
-    //     setTotalShipping(event.target.value);
-    // };
-    // Retrieve stored data from localStorage or default to empty array and 1
     const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
     const storedProductNumber = parseInt(localStorage.getItem('currentProductNumber')) || 1;
 
@@ -34,21 +30,6 @@ const Profile = () => {
         return `OD${String(number).padStart(4, '0')}`;
     };
 
-    // Function to add a product with an incremented formatted number
-    const addProduct = (productName) => {
-        const formattedNumber = formatProductNumber(currentProductNumber);
-
-        const newProduct = {
-            number: formattedNumber
-        };
-
-        const updatedProducts = [...products, newProduct];
-        setProducts(updatedProducts);
-        setCurrentProductNumber(currentProductNumber + 1);
-
-        localStorage.setItem('products', JSON.stringify(updatedProducts));
-        localStorage.setItem('currentProductNumber', currentProductNumber + 1);
-    };
     const [formData, setFormData] = useState([
         {
             metal: "",
@@ -120,12 +101,17 @@ const Profile = () => {
         }
     };
 
-
     const handleAddClick = (e) => {
         e.preventDefault();
+
+        // Format the product number as ODXXXX
+        const formattedNumber = formatProductNumber(currentProductNumber);
+
+        // Add a new product with the formatted order number
         setFormData([
             ...formData,
             {
+                orderNumber: formattedNumber, // Add the order number
                 metal: "",
                 color: "",
                 karat: "",
@@ -141,7 +127,12 @@ const Profile = () => {
                 image: null,
             }
         ]);
+
+        // Increment the currentProductNumber state and update in localStorage
+        setCurrentProductNumber(currentProductNumber + 1);
+        localStorage.setItem('currentProductNumber', currentProductNumber + 1);
     };
+
     // Retrieve shipping from localStorage
 
 

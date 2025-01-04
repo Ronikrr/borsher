@@ -64,9 +64,9 @@ function App() {
 
           <Route path='/contacts' element={<Layout><Contacts /></Layout>} />
           <Route path='/try' element={<Layout><Try /></Layout>} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/' element={<Layout><Profile /></Layout>} />
+          <Route path='/pdf' element={<Layout><Profile /></Layout>} />
         </Routes>
       </Router>
     </div>
