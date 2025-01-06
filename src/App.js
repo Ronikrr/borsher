@@ -8,6 +8,7 @@ import Register from './pages/user/register';
 import Profile from './pages/user/profile';
 import Contacts from './pages/user/contacts'
 import Try from './pages/user/try'
+import Locha from './pages/user/locha'
 
 const Layout = ({ children }) => {
   const [isopensidebar, setisopensidebar] = useState(false);
@@ -67,6 +68,7 @@ function App() {
           <Route path='/' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/pdf' element={<Layout><Profile /></Layout>} />
+          <Route path='/locha' element={<Layout><Locha /></Layout>} />
         </Routes>
       </Router>
     </div>

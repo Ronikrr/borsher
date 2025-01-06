@@ -42,7 +42,7 @@ const Register = () => {
         }
 
         try {
-            const res = await fetch("http://localhost:8000/users", {
+            const res = await fetch("https://server-cosmatic.vercel.app/users", {
                 method: "POST",
                 body: JSON.stringify(formdata),
                 headers: {
@@ -66,14 +66,6 @@ const Register = () => {
         }
     };
 
-    // const registerUser = async (userData) => {
-    //     // Add user to the database with 'is_approved' set to false
-    //     await db.collection('users').add({
-    //         ...userData,
-    //         is_approved: false,
-    //     });
-    // };
-
 
     return (
         <div className='flex items-center justify-center w-screen h-screen' >
@@ -84,9 +76,9 @@ const Register = () => {
                 {errorMessage}
             </div>
 
-            <div className="border rounded-sm border-[--border-color] bg-white w-[1280px] shadow-sm ">
+            <div className="border rounded-sm border-[--border-color] bg-white w-[600px] shadow-sm ">
                 <div className="flex flex-wrap items-center w-full">
-                    <div className="hidden w-full xl:block xl:w-1/2">
+                    {/* <div className="hidden w-full xl:block xl:w-1/2">
                         <div className="py-[4.375rem] text-center px-[6.5rem]">
                             <Link to="/" className='inline-block text-[50px] capitalize font-semibold mb-3' >websolex </Link>
                             <p className='2xl:px-20 text-[30px]' >admin</p>
@@ -94,8 +86,8 @@ const Register = () => {
                                 <img src="https://www.t3bucket.com/f/0-Group15.png" className='w-[350px] h-[350px]' alt="" />
                             </span>
                         </div>
-                    </div>
-                    <div className="w-full border-[--border-color]  xl:w-1/2 xl:border-l-2">
+                    </div> */}
+                    <div className="w-full border-[--border-color]   xl:border-l-2">
                         <div className="w-full p-4 sm:p-12 xl:p-17">
                             <span className="mb-1.5 block font-medium capitalize "> start for free </span>
                             <h2 className="text-2xl text-black mb-9 font-blod">Sign In to TailAdmin</h2>
@@ -172,12 +164,12 @@ const Register = () => {
                                 </div>
                                 <div className="mb-5">
                                     <Submit
-                                        label={"Create"}
+                                        label={"Sign up"}
 
                                     />
                                 </div>
                                 <div className="mt-6 text-center">
-                                    <p>Already have an account? <Link to='/login' className='text-[var(--primary-color)]' >Sign in</Link> </p>
+                                    <p>Already have an account? <Link to='/' className='text-[var(--primary-color)]' >Sign in</Link> </p>
                                 </div>
                             </form>
                         </div>

@@ -19,10 +19,11 @@ function Sidebar({ isopensidebar, closeslidebar }) {
                     icon: <MdDashboard />,
                     label: "Dashboard",
                     subsubmenu: [
-               
+
                         { id: 9, icon: <RiContactsFill />, label: "contact & subscribe", link: "/" },
                         { id: 8, icon: <MdContactPage />, label: "contact details", link: "/contacts" },
-                        { id:10, icon: <MdContactPage />, label: "contact details", link: "/try" },
+                        { id: 10, icon: <MdContactPage />, label: "contact details", link: "/try" },
+                        { id: 11, icon: <MdContactPage />, label: "od", link: "/locha" },
                     ],
                 },
             ],
@@ -91,43 +92,43 @@ function Sidebar({ isopensidebar, closeslidebar }) {
 
 
                             <ul className="mt-2 space-y-2 ">
-                                    {menu.subMenu.map((subMenu) => (
-                                        <li key={subMenu.id}>
-                                            {/* Submenu */}
-                                            <div
-                                                className={`flex items-center p-2 justify-between rounded cursor-pointer ${activeSubMenu === subMenu.id ? "bg-gray-700" : "bg-gray-900"
-                                                    }`}
-                                                onClick={() => handleSubMenuClick(subMenu.id)}
-                                            >
-                                                <div className="flex items-center gap-3 capitalize">
-                                                    {subMenu.icon}
-                                                    {subMenu.label}
-                                                </div>
+                                {menu.subMenu.map((subMenu) => (
+                                    <li key={subMenu.id}>
+                                        {/* Submenu */}
+                                        <div
+                                            className={`flex items-center p-2 justify-between rounded cursor-pointer ${activeSubMenu === subMenu.id ? "bg-gray-700" : "bg-gray-900"
+                                                }`}
+                                            onClick={() => handleSubMenuClick(subMenu.id)}
+                                        >
+                                            <div className="flex items-center gap-3 capitalize">
+                                                {subMenu.icon}
+                                                {subMenu.label}
                                             </div>
-                                            {/* Subsubmenu Directly Below Submenu */}
-                                          
-                                                <ul className="pl-8 mt-2 space-y-2">
-                                                    {subMenu.subsubmenu.map((subsubmenu) => (
-                                                        <li
-                                                            key={subsubmenu.id}
-                                                        >
-                                                            <Link to={subsubmenu.link}
-                                                                className={`flex items-center capitalize p-2 gap-3 rounded cursor-pointer hover:bg-gray-700 z-10  ${activeSubSubMenu === subsubmenu.id
-                                                                    ? "bg-gray-700  relative after:absolute after:w-[30px] after:h-[40px] after:rounded-l-full after:bg-[rgb(243,244,246)] after:shadow-l-xl z-0 after:-right-[16px] "
-                                                                    : "bg-gray-900"
-                                                                    }`}
-                                                                onClick={() => handleSubSubMenuClick(subsubmenu.id)}
-                                                            >
-                                                                {subsubmenu.icon}
-                                                                {subsubmenu.label}
-                                                            </Link>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            
-                                        </li>
-                                    ))}
-                                </ul>
+                                        </div>
+                                        {/* Subsubmenu Directly Below Submenu */}
+
+                                        <ul className="pl-8 mt-2 space-y-2">
+                                            {subMenu.subsubmenu.map((subsubmenu) => (
+                                                <li
+                                                    key={subsubmenu.id}
+                                                >
+                                                    <Link to={subsubmenu.link}
+                                                        className={`flex items-center capitalize p-2 gap-3 rounded cursor-pointer hover:bg-gray-700 z-10  ${activeSubSubMenu === subsubmenu.id
+                                                            ? "bg-gray-700  relative after:absolute after:w-[30px] after:h-[40px] after:rounded-l-full after:bg-[rgb(243,244,246)] after:shadow-l-xl z-0 after:-right-[16px] "
+                                                            : "bg-gray-900"
+                                                            }`}
+                                                        onClick={() => handleSubSubMenuClick(subsubmenu.id)}
+                                                    >
+                                                        {subsubmenu.icon}
+                                                        {subsubmenu.label}
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                    </li>
+                                ))}
+                            </ul>
 
                         </div>
                     ))}

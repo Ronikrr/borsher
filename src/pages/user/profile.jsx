@@ -4,14 +4,12 @@ import Input from '../../components/ui/input';
 import Seconduray from '../../components/ui/seconduray';
 import Primary from '../../components/ui/primary';
 import { MdOutlineFileUpload } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 const Profile = () => {
-
+    const navigate = useNavigate()
     const [totalShipping, setTotalShipping] = useState(0);
-    const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
     const storedProductNumber = parseInt(localStorage.getItem('currentProductNumber')) || 1;
-
-    const [products, setProducts] = useState(storedProducts);  // State to store the products
-    const [currentProductNumber, setCurrentProductNumber] = useState(storedProductNumber);  // State to keep track of the product number
+    const [currentProductNumber, setCurrentProductNumber] = useState(storedProductNumber);
     useEffect(() => {
         const storedShipping = localStorage.getItem('totalShipping');
         if (storedShipping) {
@@ -19,6 +17,12 @@ const Profile = () => {
         }
     }, []);
 
+    useEffect(() => {
+        const userToken = localStorage.getItem("userToken");
+        if (!userToken) {
+            navigate('/')
+        }
+    })
     const handleShippingChange = (event) => {
         const newShippingValue = event.target.value;
         setTotalShipping(newShippingValue);
@@ -101,17 +105,14 @@ const Profile = () => {
         }
     };
 
+    const formattedNumber = formatProductNumber(currentProductNumber);
     const handleAddClick = (e) => {
         e.preventDefault();
 
-        // Format the product number as ODXXXX
-        const formattedNumber = formatProductNumber(currentProductNumber);
-
-        // Add a new product with the formatted order number
         setFormData([
             ...formData,
             {
-                orderNumber: formattedNumber, // Add the order number
+                orderNumber: formattedNumber, 
                 metal: "",
                 color: "",
                 karat: "",
@@ -220,6 +221,7 @@ const Profile = () => {
                                 <form>
                                     {formData.map((entry, index) => (
                                         <div className="">
+                                            <label htmlFor=""> {formattedNumber} </label>
                                             <div className="relative mb-5 block w-full cursor-pointer appearance-none rounded border border-dashed border-[#3c50e0] bg-[#eff4fb] py-4 px-4 sm:py-7.5">
                                                 <input
                                                     type="file"

@@ -33,7 +33,7 @@ const Login = () => {
         }
 
         try {
-            const res = await fetch('http://localhost:8000/login', {
+            const res = await fetch('https://server-cosmatic.vercel.app/login', {
                 method: 'POST',
                 body: JSON.stringify(formdata),
                 headers: {
@@ -68,9 +68,9 @@ const Login = () => {
             >
                 {error}
             </div>
-            <div className="border rounded-sm border-[--border-color] bg-white w-[1280px] shadow-sm ">
+            <div className="border rounded-sm border-[--border-color] bg-white w-[600px] shadow-sm ">
                 <div className="flex flex-wrap items-center w-full">
-                    <div className="hidden w-full xl:block xl:w-1/2">
+                    {/* <div className="hidden w-full xl:block xl:w-1/2">
                         <div className="py-[4.375rem] text-center px-[6.5rem]">
                             <Link to="/" className='inline-block mb-5' >tailwind</Link>
                             <p className='2xl:px-20 text-[16px]' >Lorem ipsum dolor sit amet, consectetur adipiscing elit suspendisse.</p>
@@ -78,8 +78,8 @@ const Login = () => {
                                 <img src="https://www.t3bucket.com/f/0-Group15.png" className='w-[350px] h-[350px]' alt="" />
                             </span>
                         </div>
-                    </div>
-                    <div className="w-full border-[var(--border-color)]  xl:w-1/2 xl:border-l-2">
+                    </div> */}
+                    <div className="w-full border-[var(--border-color)]   xl:border-l-2">
                         <div className="w-full p-4 sm:p-12 xl:p-17">
                             <span className="mb-1.5 block font-medium capitalize "> start for free </span>
                             <h2 className="text-2xl text-black mb-9 font-blod">Sign In to TailAdmin</h2>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { IoIosSearch } from "react-icons/io";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RiNotification2Line } from "react-icons/ri";
 import { CiUser } from "react-icons/ci";
 import { RiMessage2Line } from "react-icons/ri";
@@ -8,6 +8,7 @@ import { TiContacts } from "react-icons/ti";
 import { FaBars } from "react-icons/fa6";
 import { TbLogin, TbLogin2 } from 'react-icons/tb';
 const Header = ({ toogleslidebar }) => {
+    const navigate = useNavigate()
     const [isopen, setisopen] = useState(false);
     const [isuser, setisuseropen] = useState(false);
     const [ismessageopen, setismessageopen] = useState(false);
@@ -34,7 +35,20 @@ const Header = ({ toogleslidebar }) => {
             setismessageopen(false);
             setisuseropen(false)
         }, 5000);
+    }, [])
+    const userToken = localStorage.getItem('userToken');
+    useEffect(() => {
+        if (!userToken) {
+            navigate('/')
+        }
     })
+    const logout = () => {
+        if (userToken) {
+            localStorage.removeItem('userToken');
+        } else {
+            navigate('/')
+        }
+    }
     return (
         <div className='h-[80px] w-screen md:w-full flex px-11 py-4  items-center justify-center bg-[#fff] '>
             <div className="flex items-center justify-center w-full lg:justify-between">
@@ -113,7 +127,7 @@ const Header = ({ toogleslidebar }) => {
                         {isuser && (
                             <div className="absolute right-0 flex flex-col block mt-4 bg-white border rounded-sm w-[15.625rem] border-stroke shadow-default " >
                                 <ul className='flex flex-col gap-5 px-6 border-b border-stroke py-7  text-[#64748b]' >
-                                    <li>
+                                    {/* <li>
                                         <Link to='/profile' className='flex items-center gap-3 text-sm font-medium capitalize duration-300 ease-in-out hover:text-blue-400 lg:text-base' >
                                             <CiUser className='text-[22px]' /> my profile
                                         </Link>
@@ -122,18 +136,13 @@ const Header = ({ toogleslidebar }) => {
                                         <Link className='flex items-center gap-3 text-sm font-medium capitalize duration-300 ease-in-out hover:text-blue-400 lg:text-base' >
                                             <TiContacts className='text-[22px]' /> my contact
                                         </Link>
+                                    </li> */}
+                                    <li>
+                                        <Link onClick={logout} className='flex items-center gap-3 text-sm font-medium capitalize duration-300 ease-in-out hover:text-blue-400 lg:text-base' >
+                                            <TbLogin2 className='text-[22px]' /> logout
+                                        </Link>
                                     </li>
 
-                                    <li>
-                                        <Link to="/login" className='flex items-center gap-3 text-sm font-medium capitalize duration-300 ease-in-out hover:text-blue-400 lg:text-base' >
-                                            <TbLogin2 className='text-[22px]' /> login
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/register" className='flex items-center gap-3 text-sm font-medium capitalize duration-300 ease-in-out hover:text-blue-400 lg:text-base' >
-                                            <TbLogin className='text-[22px]' /> register
-                                        </Link>
-                                    </li>
                                 </ul>
                             </div>
 )}
