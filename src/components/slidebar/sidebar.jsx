@@ -5,6 +5,7 @@ import { MdContactPage, MdDashboard } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
 import { RiContactsFill } from "react-icons/ri";
+import { FaHistory } from "react-icons/fa";
 
 function Sidebar({ isopensidebar, closeslidebar }) {
     const [activeMenu, setActiveMenu] = useState(null);
@@ -20,10 +21,8 @@ function Sidebar({ isopensidebar, closeslidebar }) {
                     label: "Dashboard",
                     subsubmenu: [
 
-                        { id: 9, icon: <RiContactsFill />, label: "contact & subscribe", link: "/" },
-                        // { id: 8, icon: <MdContactPage />, label: "contact details", link: "/contacts" },
-                        // { id: 10, icon: <MdContactPage />, label: "contact details", link: "/try" },
-                        // { id: 11, icon: <MdContactPage />, label: "od", link: "/locha" },
+                        { id: 9, icon: <RiContactsFill />, label: "file", link: "/" },
+                        { id: 8, icon: <FaHistory />, label: "History", link: "/history" },
                     ],
                 },
             ],

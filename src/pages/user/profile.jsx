@@ -114,37 +114,37 @@
 
 //     };
 
-// const metalOptions = [
-//     { value: 'select', label: 'Select an option' },
-//     { value: 'Gold', label: 'Gold' },
-//     { value: 'platinum', label: 'Platinum' },
-//     { value: 'silver', label: 'Silver' },
-// ];
+//     const metalOptions = [
+//         { value: 'select', label: 'Select an option' },
+//         { value: 'Gold', label: 'Gold' },
+//         { value: 'platinum', label: 'Platinum' },
+//         { value: 'silver', label: 'Silver' },
+//     ];
 
-// const goldColorOptions = [
-//     { value: 'yellow', label: 'Yellow' },
-//     { value: 'white', label: 'White' },
-//     { value: 'rose', label: 'Rose' },
-// ];
+//     const goldColorOptions = [
+//         { value: 'yellow', label: 'Yellow' },
+//         { value: 'white', label: 'White' },
+//         { value: 'rose', label: 'Rose' },
+//     ];
 
-// const goldKaratOptions = [
-//     { value: '9KT', label: '9KT' },
-//     { value: '10KT', label: '10KT' },
-//     { value: '11KT', label: '11KT' },
-//     { value: '12KT', label: '12KT' },
-//     { value: '13KT', label: '13KT' },
-//     { value: '14KT', label: '14KT' },
-//     { value: '15KT', label: '15KT' },
-//     { value: '16KT', label: '16KT' },
-//     { value: '17KT', label: '17KT' },
-//     { value: '18KT', label: '18KT' },
-//     { value: '19KT', label: '19KT' },
-//     { value: '20KT', label: '20KT' },
-//     { value: '21KT', label: '21KT' },
-//     { value: '22KT', label: '22KT' },
-//     { value: '23KT', label: '23KT' },
-//     { value: '24KT', label: '24KT' },
-// ];
+//     const goldKaratOptions = [
+//         { value: '9KT', label: '9KT' },
+//         { value: '10KT', label: '10KT' },
+//         { value: '11KT', label: '11KT' },
+//         { value: '12KT', label: '12KT' },
+//         { value: '13KT', label: '13KT' },
+//         { value: '14KT', label: '14KT' },
+//         { value: '15KT', label: '15KT' },
+//         { value: '16KT', label: '16KT' },
+//         { value: '17KT', label: '17KT' },
+//         { value: '18KT', label: '18KT' },
+//         { value: '19KT', label: '19KT' },
+//         { value: '20KT', label: '20KT' },
+//         { value: '21KT', label: '21KT' },
+//         { value: '22KT', label: '22KT' },
+//         { value: '23KT', label: '23KT' },
+//         { value: '24KT', label: '24KT' },
+//     ];
 //     const handleExportClick = (e) => {
 //         e.preventDefault();
 //         const selectedLogo = document.querySelector('input[name="logo"]:checked')?.value;
@@ -291,48 +291,53 @@
 
 //         .table {
 //             padding-left: 20px;
+//             width:100%;
+
 //         }
 
-//         .table,
-//         table,
-//         tr {
-//             width: 445.71px;
-//         }
-
-//         table {
-//             border-collapse: collapse;
-//         }
+//        table {
+//     border-collapse: collapse;
+//     width: 100%;
+// }
 
 //         table,
 //         tr,
-//         th,
 //         td {
 //             border: 2px solid black;
+//             height: 60px;
 //         }
 
 //         th {
 //             padding-left: 20px;
 //             width: 40%;
 //             text-align: start;
+//     padding-top: 0px;
+//     // line-height: 2;
+//     vertical-align: middle !important;
+//      display: unset;
 //         }
 
 //         td {
 //             padding-left: 20px;
 //             width: 60%;
 //             text-align: start;
+//             padding-top: 0px;
+//     // line-height: 2;
+//     vertical-align: middle !important;
+//      display: table-cell;
 //         }
 
 //         .total {
-//             margin-top: 10px;
+//             margin-top: 0px;
 //             margin-bottom: 10px;
 //             color: #f4f4f4;
 //             background-color: #110353;
 //             padding-left: 20px;
 //             padding-right: 20px;
 //             display: flex;
-//             align-items: center;
+//             // align-items: center;
 //             justify-content: space-between;
-
+// height:40px
 //         }
 
 //         .total span {
@@ -350,24 +355,25 @@
 //             width: 80%;
 //             margin: 0 auto;
 //             display: flex;
-//             align-items: center;
+//             // align-items: center;
 //             justify-content: space-between;
 //             position: relative;
+//             height:50px
 //         }
 
-//         footer .footer_contact .box {
-//             position: absolute;
-//             width: 40px;
-//             height: 40px;
-//             right: -50px;
-//             top: -20px;
-//             background-color: #F9D5E7;
-//             display: flex;
-//             align-items: center;
-//             justify-content: center;
-//             border-radius: 99px;
-//             border: 2px solid white;
-//         }
+//         // footer .footer_contact .box {
+//         //     position: absolute;
+//         //     width: 40px;
+//         //     height: 40px;
+//         //     right: -50px;
+//         //     top: -20px;
+//         //     background-color: #F9D5E7;
+//         //     display: flex;
+//         //     // align-items: center;
+//         //     justify-content: center;
+//         //     border-radius: 99px;
+//         //     border: 2px solid white;
+//         // }
 
 //         .color_box {
 //             display: flex;
@@ -487,15 +493,41 @@
 //                     <span>1,000</span>
 //                 </div>
 //             </main>
-//             <footer>
-//                 <div class="footer_contact">
-//                     <div class="box">
-//                         1
-//                     </div>
-//                     <span>reasureleb@gmail.com</span>
-//                     <span>+91 75738 75177</span>
-//                 </div>
-//             </footer>
+//            <footer>
+//     <div class="footer_contact" style="
+//         display: flex;
+//         align-items: flex-start;
+//         position: relative;
+//         gap: 5px;
+//          height: 'auto'
+//     ">
+//         <!-- Email -->
+//         <span>reasureleb@gmail.com</span>
+
+//         <!-- Phone Number -->
+//         <span>+91 75738 75177</span>
+
+//         <!-- Circular Box -->
+//         <div class="box" style="
+//             width: 30px;
+//             height: 40px;
+//             background-color: #F9D5E7;
+//             border-radius: 50%;
+//             border: 2px solid white;
+//           margin-top: -20px;
+//      padding: 10px 16px;
+//     line-height: 0;
+//     transform: translate(45px, 1px);
+//     display: flex
+// ;
+//     justify-content: center;
+//     text-align: center;
+//         ">
+//             1
+//         </div>
+//     </div>
+// </footer>
+
 //         </div>
 //          </div>
 //            </body>
@@ -506,295 +538,323 @@
 //         const tempDiv = document.createElement('div');
 //         tempDiv.innerHTML = htmlContent;
 
-//         // Define custom options for the PDF
-//         const options = {
-//             margin: 10,
-//             filename: 'bill_design.pdf',
-//             html2canvas: { scale: 4 },
-//             jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-//         };
+//         const previewContainer = document.getElementById('preview-container'); // Replace with actual preview container ID
+//         previewContainer.innerHTML = htmlContent;
 
-//         // Use html2pdf to generate and download the PDF
+//         const options = {
+//             margin: 0,
+//             filename: 'bill_design.pdf',
+//             html2canvas: {
+//                 scale: 2, // Improve clarity
+//                 useCORS: true, // Ensure external assets are loaded correctly
+//             },
+//             jsPDF: {
+//                 unit: 'mm',
+//                 format: 'a4',
+//                 orientation: 'portrait',
+//             },
+//             pagebreak: { mode: ['css', 'legacy'] }, // Handle page breaks
+//         };
 //         html2pdf().from(tempDiv).set(options).save();
 //         objectUrls.forEach((url) => URL.revokeObjectURL(url));
 //     };
 
+//     // const handleExportClick = (e) => {
+//     //     const element = document.getElementById('pdf-content');
+
+//     //     const opt = {
+//     //         margin: 1,
+//     //         filename: 'product-details.pdf',
+//     //         image: { type: 'jpeg', quality: 0.98 },
+//     //         html2canvas: { dpi: 192, letterRendering: true },
+//     //         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+//     //     };
+
+//     //     html2pdf().from(element).set(opt).save();
+//     // }
+
 //     return (
-//         <div className="p-4 mx-auto max-w-screen-2xl md:p-6 2xl:p-10">
-//             <div className="max-w-full mx-auto">
-//                 <div className="flex flex-col gap-3 mb-6 sm:flex-row sm:items-center sm:justify-between">
-//                     <h2 className="font-semibold text-black text-[26px] capitalize">PDF Function</h2>
-//                     <BreadcrumbNav />
-//                 </div>
-//                 <div className="flex flex-wrap gap-8 mb-7">
-//                     <div className="w-full">
-//                         <div className="bg-white border rounded-sm border-[rgb(226,232,240)] shadow-default">
-//                             <div className="py-4 border-b border-[rgb(226,232,240)] capitalize px-7">
-//                                 pdf product
-//                             </div>
-//                             <div className="flex items-center gap-4 p-7">
-//                                 <div>
-//                                     <label htmlFor="upload-logo">
-//                                         <input
-//                                             type="file"
-//                                             id="upload-logo"
-//                                             accept="image/*"
-//                                             onChange={handleLogoUpload}
-//                                         />
-//                                     </label>
-//                                 </div>
-
-//                                 {/* Display uploaded logo if available */}
-//                                 {uploadedLogo && (
-//                                     <div>
-//                                         <img
-//                                             src={uploadedLogo}
-//                                             alt="Uploaded Logo"
-//                                             style={{ width: "200px" }}
-//                                         />
-//                                     </div>
-//                                 )}
-
-//                             </div>
-//                         </div>
+//         <>
+//             <div className="p-4 mx-auto max-w-screen-2xl md:p-6 2xl:p-10">
+//                 <div className="max-w-full mx-auto">
+//                     <div className="flex flex-col gap-3 mb-6 sm:flex-row sm:items-center sm:justify-between">
+//                         <h2 className="font-semibold text-black text-[26px] capitalize">PDF Function</h2>
+//                         <BreadcrumbNav />
 //                     </div>
+// <div className="flex flex-wrap gap-8 mb-7">
+//     <div className="w-full">
+//         <div className="bg-white border rounded-sm border-[rgb(226,232,240)] shadow-default">
+//             <div className="py-4 border-b border-[rgb(226,232,240)] capitalize px-7">
+//                 pdf product
+//             </div>
+//             <div className="flex items-center gap-4 p-7">
+//                 <div>
+//                     <label htmlFor="upload-logo">
+//                         <input
+//                             type="file"
+//                             id="upload-logo"
+//                             accept="image/*"
+//                             onChange={handleLogoUpload}
+//                         />
+//                     </label>
 //                 </div>
-//                 <div className="flex flex-wrap gap-8">
-//                     <div className="w-full">
-//                         <div className="bg-white border rounded-sm border-[rgb(226,232,240)] shadow-default">
-//                             <div className="py-4 border-b border-[rgb(226,232,240)] capitalize px-7">
-//                                 pdf product
-//                             </div>
-//                             <div className="p-7">
 
-//                                 <form>
-//                                     {formData.map((entry, index) => {
-//                                         const formattedNumber = `gunrate od${String(index + 1).padStart(4, '0')}`;
-//                                         return (
-//                                             <div className="">
-//                                                 <label htmlFor=""> {entry.formattedNumber} </label>
-//                                                 <div className="relative mb-5 block w-full cursor-pointer appearance-none rounded border border-dashed border-[#3c50e0] bg-[#eff4fb] py-4 px-4 sm:py-7.5">
-//                                                     <input
-//                                                         type="file"
-//                                                         className="absolute inset-0 z-50 w-full h-full p-0 m-0 outline-none opacity-0 cursor-pointer"
-//                                                         id={`image-upload-${index}`}
-//                                                         onChange={(event) => handleImageChange(index, event)}
-//                                                     />
-//                                                     <div className="flex flex-col items-center justify-center space-y-3">
-//                                                         <span className="flex items-center rounded-full justify-center w-10 h-10 bg-white border-[#e2e8f0]">
-//                                                             <MdOutlineFileUpload className="text-[22px] text-[#3c50e0]" />
-//                                                         </span>
-//                                                         <p>
-//                                                             <span className="text-[#3c50e0]">Click to upload</span> or drag
-//                                                             and drop
-//                                                         </p>
-//                                                         <p className="mb-1.5">SVG, PNG, JPG or GIF</p>
-//                                                         <p>(max, 800 X 800px)</p>
+//                 {/* Display uploaded logo if available */}
+//                 {uploadedLogo && (
+//                     <div>
+//                         <img
+//                             src={uploadedLogo}
+//                             alt="Uploaded Logo"
+//                             style={{ width: "200px" }}
+//                         />
+//                     </div>
+//                 )}
+
+//             </div>
+//         </div>
+//     </div>
+// </div>
+//                     <div className="flex flex-wrap gap-8">
+//                         <div className="w-full">
+//                             <div className="bg-white border rounded-sm border-[rgb(226,232,240)] shadow-default">
+//                                 <div className="py-4 border-b border-[rgb(226,232,240)] capitalize px-7">
+//                                     pdf product
+//                                 </div>
+//                                 <div className="p-7">
+
+//                                     <form>
+//                                         {formData.map((entry, index) => {
+//                                             const formattedNumber = `gunrate od${String(index + 1).padStart(4, '0')}`;
+//                                             return (
+//                                                 <div className="">
+//                                                     <label htmlFor=""> {entry.formattedNumber} </label>
+//                                                     <div className="relative mb-5 block w-full cursor-pointer appearance-none rounded border border-dashed border-[#3c50e0] bg-[#eff4fb] py-4 px-4 sm:py-7.5">
+//                                                         <input
+//                                                             type="file"
+//                                                             className="absolute inset-0 z-50 w-full h-full p-0 m-0 outline-none opacity-0 cursor-pointer"
+//                                                             id={`image-upload-${index}`}
+//                                                             onChange={(event) => handleImageChange(index, event)}
+//                                                         />
+//                                                         <div className="flex flex-col items-center justify-center space-y-3">
+//                                                             <span className="flex items-center rounded-full justify-center w-10 h-10 bg-white border-[#e2e8f0]">
+//                                                                 <MdOutlineFileUpload className="text-[22px] text-[#3c50e0]" />
+//                                                             </span>
+//                                                             <p>
+//                                                                 <span className="text-[#3c50e0]">Click to upload</span> or drag
+//                                                                 and drop
+//                                                             </p>
+//                                                             <p className="mb-1.5">SVG, PNG, JPG or GIF</p>
+//                                                             <p>(max, 800 X 800px)</p>
+//                                                         </div>
+//                                                         {entry.image && <img src={entry.image} alt="Product Preview" style={{ width: '100px', marginTop: '10px' }} />}
 //                                                     </div>
-//                                                     {entry.image && <img src={entry.image} alt="Product Preview" style={{ width: '100px', marginTop: '10px' }} />}
+//                                                     <div className="flex flex-row gap-5 mb-5">
+//                                                         <div className="w-full sm:w-1/2">
+//                                                             <label
+//                                                                 htmlFor="material-select"
+//                                                                 className="block mb-2 text-sm font-medium text-black"
+//                                                             >
+//                                                                 Material
+//                                                             </label>
+//                                                             <select
+//                                                                 name='metal'
+//                                                                 value={entry.metal}
+//                                                                 onChange={(event) => handleInputChange(index, event)}
+//                                                                 className='w-full rounded border border-[var(--border-color)] bg-[rgb(239,244,251)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize '
+//                                                                 placeholder="Select Material"
+//                                                             >
+//                                                                 {metalOptions.map(option => (
+//                                                                     <option key={option.value} value={option.value}>{option.label}</option>
+//                                                                 ))}
+//                                                             </select>
+//                                                         </div>
+//                                                         <div className="w-full sm:w-1/2">
+//                                                             <label
+//                                                                 htmlFor="gold-kt-select"
+//                                                                 className="block mb-2 text-sm font-medium text-black capitalize"
+//                                                             >
+//                                                                 main  diamond
+//                                                             </label>
+//                                                             <Input
+//                                                                 type={'text'}
+//                                                                 name={"mainDiamond"}
+//                                                                 value={entry.mainDiamond}
+//                                                                 onChange={(event) => handleInputChange(index, event)}
+//                                                                 placeholder={'enter main dimond'}
+//                                                             />
+//                                                         </div>
+//                                                     </div>
+
+//                                                     <div className="mb-5">
+//                                                         {entry.metal === 'Gold' && (
+//                                                             <div className="flex w-full gap-3 item-center">
+//                                                                 <div className="w-full sm:w-1/2">
+//                                                                     <label
+//                                                                         htmlFor="gold-color-select"
+//                                                                         className="block mb-2 text-sm font-medium text-black"
+//                                                                     >
+//                                                                         Gold Color
+//                                                                     </label>
+//                                                                     <select
+//                                                                         name="color"
+//                                                                         value={entry.color}
+//                                                                         onChange={(event) => handleInputChange(index, event)}
+//                                                                         className={`w-full rounded border border-[var(--border-color)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize ${getBackgroundColor(entry.color)}`} placeholder="Select Gold Color"
+//                                                                     >
+//                                                                         {goldColorOptions.map(option => (
+//                                                                             <option key={option.value} value={option.value}>{option.label}</option>
+//                                                                         ))}
+//                                                                     </select>
+//                                                                 </div>
+//                                                                 <div className="w-full sm:w-1/2">
+//                                                                     <label
+//                                                                         htmlFor="gold-color-select"
+//                                                                         className="block mb-2 text-sm font-medium text-black"
+//                                                                     >
+//                                                                         select Gold Karat
+//                                                                     </label>
+//                                                                     <select
+//                                                                         name="karat"
+//                                                                         value={entry.karat}
+//                                                                         onChange={(event) => handleInputChange(index, event)}
+//                                                                         className='w-full rounded border border-[var(--border-color)] bg-[rgb(239,244,251)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize' placeholder="Select Gold karat"
+//                                                                     >
+//                                                                         {goldKaratOptions.map(option => (
+//                                                                             <option key={option.value} value={option.value}>{option.label}</option>
+//                                                                         ))}
+//                                                                     </select>
+//                                                                 </div>
+//                                                             </div>
+//                                                         )}
+
+//                                                     </div>
+
+//                                                     <div className="flex w-full gap-3 mb-5 item-center">
+//                                                         <div className="w-full md:w-1/2 ">
+//                                                             <label
+//                                                                 htmlFor="sideStone"
+//                                                                 className="block mb-3 text-sm font-medium text-black capitalize"
+//                                                             >
+//                                                                 side stone
+//                                                             </label>
+//                                                             <div className="relative">
+//                                                                 <Input
+//                                                                     value={entry.sideStone}
+//                                                                     name={`sideStone`}
+//                                                                     onChange={(event) => handleInputChange(index, event)}
+//                                                                     placeholder="Enter side stone"
+//                                                                 />
+//                                                             </div>
+//                                                         </div>
+//                                                         <div className="w-full md:w-1/2 ">
+//                                                             <label
+//                                                                 htmlFor="size"
+//                                                                 className="block mb-3 text-sm font-medium text-black capitalize"
+//                                                             >
+//                                                                 size
+//                                                             </label>
+//                                                             <div className="relative">
+//                                                                 <Input
+//                                                                     value={entry.size}
+//                                                                     name={`size`}
+//                                                                     onChange={(event) => handleInputChange(index, event)}
+//                                                                     placeholder="Enter size "
+//                                                                 />
+//                                                             </div>
+//                                                         </div>
+//                                                     </div>
+//                                                     <div className="flex w-full gap-3 mb-5 item-center">
+//                                                         <div className="w-full md:w-1/2 ">
+//                                                             <label
+//                                                                 htmlFor="cost"
+//                                                                 className="block mb-3 text-sm font-medium text-black capitalize"
+//                                                             >
+//                                                                 cost
+//                                                             </label>
+//                                                             <div className="relative">
+//                                                                 <Input
+//                                                                     type={'number'}
+//                                                                     name="cost"
+//                                                                     value={entry.cost}
+//                                                                     onChange={(event) => handleInputChange(index, event)}
+//                                                                     placeholder="Enter Cost "
+//                                                                 />
+
+//                                                             </div>
+//                                                         </div>
+//                                                         <div className="w-full md:w-1/2 ">
+//                                                             <label
+//                                                                 htmlFor="Remark"
+//                                                                 className="block mb-3 text-sm font-medium text-black capitalize"
+//                                                             >
+//                                                                 remark
+//                                                             </label>
+//                                                             <div className="relative">
+//                                                                 <Input
+//                                                                     placeholder="Enter Remark"
+//                                                                     name="remark"
+//                                                                     value={entry.remark}
+//                                                                     onChange={(event) => handleInputChange(index, event)}
+//                                                                 />
+//                                                             </div>
+//                                                         </div>
+//                                                     </div>
 //                                                 </div>
-//                                                 <div className="flex flex-row gap-5 mb-5">
-//                                                     <div className="w-full sm:w-1/2">
-//                                                         <label
-//                                                             htmlFor="material-select"
-//                                                             className="block mb-2 text-sm font-medium text-black"
-//                                                         >
-//                                                             Material
-//                                                         </label>
-//                                                         <select
-//                                                             name='metal'
-//                                                             value={entry.metal}
-//                                                             onChange={(event) => handleInputChange(index, event)}
-//                                                             className='w-full rounded border border-[var(--border-color)] bg-[rgb(239,244,251)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize '
-//                                                             placeholder="Select Material"
-//                                                         >
-//                                                             {metalOptions.map(option => (
-//                                                                 <option key={option.value} value={option.value}>{option.label}</option>
-//                                                             ))}
-//                                                         </select>
-//                                                     </div>
-//                                                     <div className="w-full sm:w-1/2">
-//                                                         <label
-//                                                             htmlFor="gold-kt-select"
-//                                                             className="block mb-2 text-sm font-medium text-black capitalize"
-//                                                         >
-//                                                             main  diamond
-//                                                         </label>
+
+//                                             )
+//                                         }
+
+//                                         )}
+//                                         <div className="flex justify-end gap-4">
+//                                             <Seconduray label="Add" onClick={handleAddClick} />
+//                                             <Primary label="Export" onClick={handleExportClick} />
+//                                         </div>
+//                                         <div className="flex flex-col w-full mt-5 space-y-6">
+//                                             <div className="flex justify-end w-full p-4 bg-white border rounded-md">
+//                                                 <div className="w-3/12">
+//                                                     <p className="my-4 font-semibold">
+//                                                         Product Total: {formData.reduce((acc, entry) => {
+//                                                             if (entry && typeof entry.productTotal === 'number') {
+//                                                                 return acc + entry.productTotal;
+//                                                             }
+//                                                             return acc; // Skip undefined or invalid entries
+//                                                         }, 0)}
+//                                                     </p>
+//                                                     <div className="my-4">
+//                                                         <label htmlFor="total-shipping">Total Shipping</label>
 //                                                         <Input
-//                                                             type={'text'}
-//                                                             name={"mainDiamond"}
-//                                                             value={entry.mainDiamond}
-//                                                             onChange={(event) => handleInputChange(index, event)}
-//                                                             placeholder={'enter main dimond'}
+//                                                             type="number"
+//                                                             name="totalShipping"
+//                                                             value={totalShipping}
+//                                                             onChange={handleShippingChange}
+//                                                             placeholder="Shipping"
 //                                                         />
 //                                                     </div>
+//                                                     <p className="my-4 font-semibold">
+//                                                         Total Cost: {formData.reduce((acc, entry) => {
+//                                                             if (entry && typeof entry.productTotal === 'number') {
+//                                                                 return acc + entry.productTotal;
+//                                                             }
+//                                                             return acc; // Skip undefined or invalid entries
+//                                                         }, 0) + parseFloat(totalShipping || 0)}
+//                                                     </p>
 //                                                 </div>
-
-//                                                 <div className="mb-5">
-//                                                     {entry.metal === 'Gold' && (
-//                                                         <div className="flex w-full gap-3 item-center">
-//                                                             <div className="w-full sm:w-1/2">
-//                                                                 <label
-//                                                                     htmlFor="gold-color-select"
-//                                                                     className="block mb-2 text-sm font-medium text-black"
-//                                                                 >
-//                                                                     Gold Color
-//                                                                 </label>
-// <select
-//     name="color"
-//     value={entry.color}
-//     onChange={(event) => handleInputChange(index, event)}
-//     className={`w-full rounded border border-[var(--border-color)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize ${getBackgroundColor(entry.color)}`} placeholder="Select Gold Color"
-// >
-//     {goldColorOptions.map(option => (
-//         <option key={option.value} value={option.value}>{option.label}</option>
-//     ))}
-//                                                                 </select>
-//                                                             </div>
-//                                                             <div className="w-full sm:w-1/2">
-//                                                                 <label
-//                                                                     htmlFor="gold-color-select"
-//                                                                     className="block mb-2 text-sm font-medium text-black"
-//                                                                 >
-//                                                                     select Gold Karat
-//                                                                 </label>
-// <select
-//     name="karat"
-//     value={entry.karat}
-//     onChange={(event) => handleInputChange(index, event)}
-//     className='w-full rounded border border-[var(--border-color)] bg-[rgb(239,244,251)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize' placeholder="Select Gold karat"
-// >
-//     {goldKaratOptions.map(option => (
-//         <option key={option.value} value={option.value}>{option.label}</option>
-//     ))}
-// </select>
-//                                                             </div>
-//                                                         </div>
-//                                                     )}
-
-//                                                 </div>
-
-//                                                 <div className="flex w-full gap-3 mb-5 item-center">
-//                                                     <div className="w-full md:w-1/2 ">
-//                                                         <label
-//                                                             htmlFor="sideStone"
-//                                                             className="block mb-3 text-sm font-medium text-black capitalize"
-//                                                         >
-//                                                             side stone
-//                                                         </label>
-//                                                         <div className="relative">
-//                                                             <Input
-//                                                                 value={entry.sideStone}
-//                                                                 name={`sideStone`}
-//                                                                 onChange={(event) => handleInputChange(index, event)}
-//                                                                 placeholder="Enter side stone"
-//                                                             />
-//                                                         </div>
-//                                                     </div>
-//                                                     <div className="w-full md:w-1/2 ">
-//                                                         <label
-//                                                             htmlFor="size"
-//                                                             className="block mb-3 text-sm font-medium text-black capitalize"
-//                                                         >
-//                                                             size
-//                                                         </label>
-//                                                         <div className="relative">
-//                                                             <Input
-//                                                                 value={entry.size}
-//                                                                 name={`size`}
-//                                                                 onChange={(event) => handleInputChange(index, event)}
-//                                                                 placeholder="Enter size "
-//                                                             />
-//                                                         </div>
-//                                                     </div>
-//                                                 </div>
-//                                                 <div className="flex w-full gap-3 mb-5 item-center">
-//                                                     <div className="w-full md:w-1/2 ">
-//                                                         <label
-//                                                             htmlFor="cost"
-//                                                             className="block mb-3 text-sm font-medium text-black capitalize"
-//                                                         >
-//                                                             cost
-//                                                         </label>
-//                                                         <div className="relative">
-//                                                             <Input
-//                                                                 type={'number'}
-//                                                                 name="cost"
-//                                                                 value={entry.cost}
-//                                                                 onChange={(event) => handleInputChange(index, event)}
-//                                                                 placeholder="Enter Cost "
-//                                                             />
-
-//                                                         </div>
-//                                                     </div>
-//                                                     <div className="w-full md:w-1/2 ">
-//                                                         <label
-//                                                             htmlFor="Remark"
-//                                                             className="block mb-3 text-sm font-medium text-black capitalize"
-//                                                         >
-//                                                             remark
-//                                                         </label>
-//                                                         <div className="relative">
-//                                                             <Input
-//                                                                 placeholder="Enter Remark"
-//                                                                 name="remark"
-//                                                                 value={entry.remark}
-//                                                                 onChange={(event) => handleInputChange(index, event)}
-//                                                             />
-//                                                         </div>
-//                                                     </div>
-//                                                 </div>
-//                                             </div>
-
-//                                         )
-//                                     }
-
-//                                     )}
-//                                     <div className="flex justify-end gap-4">
-//                                         <Seconduray label="Add" onClick={handleAddClick} />
-//                                         <Primary label="Export" onClick={handleExportClick} />
-//                                     </div>
-//                                     <div className="flex flex-col w-full mt-5 space-y-6">
-//                                         <div className="flex justify-end w-full p-4 bg-white border rounded-md">
-//                                             <div className="w-3/12">
-//                                                 <p className="my-4 font-semibold">
-//                                                     Product Total: {formData.reduce((acc, entry) => {
-//                                                         if (entry && typeof entry.productTotal === 'number') {
-//                                                             return acc + entry.productTotal;
-//                                                         }
-//                                                         return acc; // Skip undefined or invalid entries
-//                                                     }, 0)}
-//                                                 </p>
-//                                                 <div className="my-4">
-//                                                     <label htmlFor="total-shipping">Total Shipping</label>
-//                                                     <Input
-//                                                         type="number"
-//                                                         name="totalShipping"
-//                                                         value={totalShipping}
-//                                                         onChange={handleShippingChange}
-//                                                         placeholder="Shipping"
-//                                                     />
-//                                                 </div>
-//                                                 <p className="my-4 font-semibold">
-//                                                     Total Cost: {formData.reduce((acc, entry) => {
-//                                                         if (entry && typeof entry.productTotal === 'number') {
-//                                                             return acc + entry.productTotal;
-//                                                         }
-//                                                         return acc; // Skip undefined or invalid entries
-//                                                     }, 0) + parseFloat(totalShipping || 0)}
-//                                                 </p>
 //                                             </div>
 //                                         </div>
-//                                     </div>
 
 
-//                                 </form>
+//                                     </form>
+//                                 </div>
 //                             </div>
 //                         </div>
 //                     </div>
 //                 </div>
 //             </div>
-//         </div>
+
+//             <div id="preview-container"></div>
+
+
+//         </>
 //     );
 // };
 
@@ -2949,7 +3009,7 @@ import Input from '../../components/ui/input';
 import BreadcrumbNav from '../../components/ui/breadcrumb';
 import axios from 'axios';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import PDF from './pdfGunrater'
+import PDF from './history'
 const JewelleryAdminPanel = () => {
     const [products, setProducts] = useState([]);
     const [product, setProduct] = useState({
@@ -2991,16 +3051,55 @@ const JewelleryAdminPanel = () => {
         setProduct({ ...product, [name]: URL.createObjectURL(files[0]) });
     };
 
+    // const addProduct = async () => {
+    //     const newProductID = `OD${counter.toString().padStart(3, '0')}`;
+    //     const newProduct = { ...product, productID: newProductID };
+
+    //     try {
+    //         const response = await axios.post('http://localhost:5000/api/products', newProduct);
+
+    //         if (response.status === 200) {
+    //             setProducts([...products, newProduct]);
+    //             setCounter(counter + 1);
+    //             setProduct({
+    //                 logo: '',
+    //                 image: '',
+    //                 metal: '',
+    //                 color: '',
+    //                 karat: '',
+    //                 size: '',
+    //                 mainDiamond: '',
+    //                 sideStone: '',
+    //                 productCost: '',
+    //                 remark: '',
+    //             });
+
+    //             alert('Product added successfully');
+    //         } else {
+    //             alert('Failed to add product. Try again later.');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error adding product:', error);
+    //         alert('There was an error while adding the product.');
+    //     }
+    // };
     const addProduct = async () => {
-        const newProductID = `OD${counter.toString().padStart(3, '0')}`;
-        const newProduct = { ...product, productID: newProductID };
+        const newProductID = `OD${counter.toString().padStart(3, '0')}`; // Generate the new product ID based on the counter
+        const newProduct = { ...product, productID: newProductID }; // Combine the product state with the new product ID
 
         try {
+            // Send the new product details to the backend API
             const response = await axios.post('http://localhost:5000/api/products', newProduct);
 
+            // Check if the response status is 200 (successful)
             if (response.status === 200) {
+                // Update the state to include the new product in the list
                 setProducts([...products, newProduct]);
+
+                // Increment the counter for the next product
                 setCounter(counter + 1);
+
+                // Reset the product state to empty values for the next input
                 setProduct({
                     logo: '',
                     image: '',
@@ -3014,15 +3113,19 @@ const JewelleryAdminPanel = () => {
                     remark: '',
                 });
 
+                // Alert success
                 alert('Product added successfully');
             } else {
+                // Alert if the response status is not 200 (error)
                 alert('Failed to add product. Try again later.');
             }
         } catch (error) {
+            // Log and alert if there is an error during the request
             console.error('Error adding product:', error);
             alert('There was an error while adding the product.');
         }
     };
+
 
     useEffect(() => {
         const fetchCounter = async () => {
@@ -3123,7 +3226,7 @@ const JewelleryAdminPanel = () => {
 
         // Add logo if exists
         if (uploadedLogo) {
-            doc.addImage(uploadedLogo, 'PNG', 10, 10, 30, 30); // Adding logo
+            doc.addImage(uploadedLogo, 'PNG', 10, 10, 30, 30);
         }
 
         const currentDate = new Date();
@@ -3314,16 +3417,43 @@ const JewelleryAdminPanel = () => {
                     <h2 className="font-semibold text-black text-[26px] capitalize">PDF Function</h2>
                     <BreadcrumbNav />
                 </div>
+                <div className="flex flex-wrap gap-8 mb-7">
+                    <div className="w-full">
+                        <div className="bg-white border rounded-sm border-[rgb(226,232,240)] shadow-default">
+                            <div className="py-4 border-b border-[rgb(226,232,240)] capitalize px-7">
+                                pdf product
+                            </div>
+                            <div className="flex items-center gap-4 p-7">
+                                <div>
+                                    <label htmlFor="upload-logo">
+                                        <input
+                                            type="file"
+                                            id="upload-logo"
+                                            accept="image/*"
+                                            onChange={handleLogoChange}
+                                        />
+                                    </label>
+                                </div>
 
+                                {/* Display uploaded logo if available */}
+                                {uploadedLogo && (
+                                    <div>
+                                        <img
+                                            src={uploadedLogo}
+                                            alt="Uploaded Logo"
+                                            style={{ width: "200px" }}
+                                        />
+                                    </div>
+                                )}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div className="container p-4 mx-auto bg-white">
                     <h1 className="mb-4 text-2xl font-bold">Jewellery Admin Panel</h1>
 
                     <div className="grid grid-cols-2 gap-4 mb-4">
-                        <Input
-                            type="file"
-                            onChange={handleLogoChange}
-                            placeholder="Upload Logo"
-                        />
                         <Input
                             type="file"
                             name="image"
@@ -3355,7 +3485,7 @@ const JewelleryAdminPanel = () => {
                                 </select>
                                 <select
                                     name="karat"
-                                    value={product.karat} 
+                                    value={product.karat}
                                     onChange={handleInputChange}
                                     className="w-full rounded border border-[var(--border-color)] bg-[rgb(239,244,251)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize"
                                 >
@@ -3432,9 +3562,6 @@ const JewelleryAdminPanel = () => {
                         <button className="px-4 py-2 mt-4 text-white bg-green-500" onClick={exportPDF}>
                             Export to PDF
                         </button>
-                        <PDFDownloadLink type='submit' document={<PDF />} fileName="product_details.pdf">
-                            {({ loading }) => (loading ? 'Loading document...' : 'Download PDF')}
-                        </PDFDownloadLink>
                     </div>
                 </div>
             </div>
