@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const GenerateIdComponent = () => {
@@ -6,6 +6,21 @@ const GenerateIdComponent = () => {
     const [prefix, setPrefix] = useState('od');
     const [length, setLength] = useState(4);
     const [generatedIds, setGeneratedIds] = useState([]); // Store all generated IDs
+
+    // Fetch previously generated IDs from the server when the component mounts
+    useEffect(() => {
+        const fetchGeneratedIds = async () => {
+            try {
+                const response = await axios.get('http://localhost:9000/get-ids');
+                const ids = response.data.ids.map(item => item.value);
+                setGeneratedIds(ids);
+            } catch (error) {
+                console.error('Error fetching IDs:', error);
+            }
+        };
+
+        fetchGeneratedIds();
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -28,33 +43,6 @@ const GenerateIdComponent = () => {
         <div>
             <h1>Generate IDs</h1>
             <form onSubmit={handleSubmit}>
-                <label>
-                    Key:
-                    <input
-                        type="text"
-                        value={key}
-                        onChange={(e) => setKey(e.target.value)}
-                    />
-                </label>
-                <br />
-                <label>
-                    Prefix:
-                    <input
-                        type="text"
-                        value={prefix}
-                        onChange={(e) => setPrefix(e.target.value)}
-                    />
-                </label>
-                <br />
-                <label>
-                    Length:
-                    <input
-                        type="number"
-                        value={length}
-                        onChange={(e) => setLength(Number(e.target.value))}
-                    />
-                </label>
-                <br />
                 <button type="submit">Generate ID</button>
             </form>
 
