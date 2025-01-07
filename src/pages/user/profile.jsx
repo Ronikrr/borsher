@@ -1913,7 +1913,7 @@ height:40px;
                                         />
                                     </label>
                                 </div>
-                                <div>
+                                {/* <div>
                                     <input
                                         type="radio"
                                         id="logo1"
@@ -1931,7 +1931,7 @@ height:40px;
                                         onChange={(e) => setSelectedLogo(e.target.value)}
                                     />
                                     <label htmlFor="logo2">Logo 2</label>
-                                </div>
+                                </div> */}
                                 {uploadedLogo && (
                                     <div>
                                         <img
