@@ -1712,6 +1712,7 @@ const Profile = () => {
         }
 
         .total {
+
             margin-top: 10px;
             margin-bottom: 10px;
             color: #f4f4f4;
@@ -1721,7 +1722,10 @@ const Profile = () => {
             display: flex;
             align-items: center;
             justify-content: space-between;
-
+ position: absolute;
+ bottom:50px;
+ width:100%;
+height:40px;
         }
 
         .total span {
@@ -1877,15 +1881,11 @@ const Profile = () => {
         const options = {
             margin: 1,
             filename: 'bill_design.pdf',
-            // html2canvas: { scale: 4 },
-            jsPDF: { unit: 'mm', format: 'letter', orientation: 'portrait' },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
         };
 
         html2pdf().from(tempDiv).set(options).save();
-
-
-
-
     }
 
 

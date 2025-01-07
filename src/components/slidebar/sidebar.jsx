@@ -21,9 +21,9 @@ function Sidebar({ isopensidebar, closeslidebar }) {
                     subsubmenu: [
 
                         { id: 9, icon: <RiContactsFill />, label: "contact & subscribe", link: "/" },
-                        { id: 8, icon: <MdContactPage />, label: "contact details", link: "/contacts" },
-                        { id: 10, icon: <MdContactPage />, label: "contact details", link: "/try" },
-                        { id: 11, icon: <MdContactPage />, label: "od", link: "/locha" },
+                        // { id: 8, icon: <MdContactPage />, label: "contact details", link: "/contacts" },
+                        // { id: 10, icon: <MdContactPage />, label: "contact details", link: "/try" },
+                        // { id: 11, icon: <MdContactPage />, label: "od", link: "/locha" },
                     ],
                 },
             ],
