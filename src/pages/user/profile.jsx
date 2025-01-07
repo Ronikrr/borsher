@@ -2623,13 +2623,333 @@
 
 // export default JewelleryAdminPanel;
 
-import React, { useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+// import { jsPDF } from 'jspdf';
+// import 'jspdf-autotable';
+// import Input from '../../components/ui/input';
+// import BreadcrumbNav from '../../components/ui/breadcrumb';
+// import axios from 'axios';
+
+// const JewelleryAdminPanel = () => {
+//     const [products, setProducts] = useState([]);
+//     const [product, setProduct] = useState({
+//         logo: '',
+//         image: '',
+//         metal: '',
+//         color: '',
+//         karat: '',
+//         size: '',
+//         mainDiamond: '',
+//         sideStone: '',
+//         productCost: '',
+//         remark: '',
+//     });
+//     const [productIDCounter, setProductIDCounter] = useState(1);
+//     const [shippingCharge, setShippingCharge] = useState(0);
+//     const [uploadedLogo, setUploadedLogo] = useState(null); // New state for uploaded logo
+//     const [counter, setCounter] = useState(null); // State to store the counter value
+//     const [loading, setLoading] = useState(true); // Loading state
+//     const [error, setError] = useState(null);
+//     // Handle logo file change (upload)
+//     const handleLogoChange = (e) => {
+//         const file = e.target.files[0];
+//         if (file) {
+//             const reader = new FileReader();
+//             reader.onloadend = () => {
+//                 setUploadedLogo(reader.result); // Store the base64 data of the uploaded logo
+//             };
+//             reader.readAsDataURL(file); // Convert file to base64 data
+//         }
+//     };
+
+//     const handleInputChange = (e) => {
+//         const { name, value } = e.target;
+//         setProduct({ ...product, [name]: value });
+//     };
+
+//     const handleFileChange = (e) => {
+//         const { name, files } = e.target;
+//         setProduct({ ...product, [name]: URL.createObjectURL(files[0]) });
+//     };
+
+//     const addProduct = async () => {
+//         const newProductID = `OD${productIDCounter.toString().padStart(3, '0')}`;
+//         const newProduct = { ...product, productID: newProductID };
+
+//         try {
+//             const response = await axios.post('http://localhost:5000/api/products', newProduct);
+
+//             if (response.status === 200) {
+//                 setProducts([...products, newProduct]);
+//                 setProductIDCounter(productIDCounter + 1);
+//                 setProduct({
+//                     logo: '',
+//                     image: '',
+//                     metal: '',
+//                     color: '',
+//                     karat: '',
+//                     size: '',
+//                     mainDiamond: '',
+//                     sideStone: '',
+//                     productCost: '',
+//                     remark: '',
+//                 });
+
+//                 alert('Product added successfully');
+//             } else {
+//                 alert('Failed to add product. Try again later.');
+//             }
+//         } catch (error) {
+//             console.error('Error adding product:', error);
+//             alert('There was an error while adding the product.');
+//         }
+//     };
+//     useEffect(() => {
+//         const fetchCounter = async () => {
+//             try {
+//                 const response = await axios.get('http://localhost:5000/api/product-counter');
+//                 setCounter(response.data.counter); // Set the counter value
+//                 setLoading(false); // Set loading to false once data is fetched
+//             } catch (err) {
+//                 setError('Error fetching counter');
+//                 setLoading(false);
+//             }
+//         };
+
+//         fetchCounter();
+//     }, []);
+// const metalOptions = [
+//     { value: 'select', label: 'Select an option' },
+//     { value: 'Gold', label: 'Gold' },
+//     { value: 'platinum', label: 'Platinum' },
+//     { value: 'silver', label: 'Silver' },
+// ];
+
+// const goldColorOptions = [
+//     { value: 'yellow', label: 'Yellow' },
+//     { value: 'white', label: 'White' },
+//     { value: 'rose', label: 'Rose' },
+// ];
+
+// const goldKaratOptions = [
+//     { value: '9KT', label: '9KT' },
+//     { value: '10KT', label: '10KT' },
+//     { value: '11KT', label: '11KT' },
+//     { value: '12KT', label: '12KT' },
+//     { value: '13KT', label: '13KT' },
+//     { value: '14KT', label: '14KT' },
+//     { value: '15KT', label: '15KT' },
+//     { value: '16KT', label: '16KT' },
+//     { value: '17KT', label: '17KT' },
+//     { value: '18KT', label: '18KT' },
+//     { value: '19KT', label: '19KT' },
+//     { value: '20KT', label: '20KT' },
+//     { value: '21KT', label: '21KT' },
+//     { value: '22KT', label: '22KT' },
+//     { value: '23KT', label: '23KT' },
+//     { value: '24KT', label: '24KT' },
+// ]
+//     const calculateTotalCost = () => {
+//         const totalProductCost = products.reduce((sum, p) => sum + Number(p.productCost || 0), 0);
+//         return totalProductCost + Number(shippingCharge || 0);
+//     };
+
+//     const exportPDF = () => {
+//         const doc = new jsPDF();
+
+//         // Check if a logo is uploaded and add it to the PDF
+//         if (uploadedLogo) {
+//             doc.addImage(uploadedLogo, 'PNG', 10, 10, 30, 30); // Adjust position and size as needed
+//         }
+
+//         // Add the title text to the PDF
+//         doc.text('Jewellery Products Details', 50, 20); // Adjust position to make space for logo
+
+//         // Get current date
+//         const currentDate = new Date();
+//         const formattedDate = currentDate.toLocaleDateString('en-IN', {
+//             weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+//         });
+
+//         // Add the formatted date
+//         doc.text(`Date: ${formattedDate}`, 50, 30); // Adjust the position as needed
+
+//         const tableData = products.map((p, index) => [
+//             p.productID,
+//             p.metal,
+//             p.size,
+//             p.color,
+//             p.karat,
+//             p.mainDiamond,
+//             p.sideStone,
+//             p.productCost,
+//             p.remark,
+//         ]);
+
+//         // Add product details table
+//         doc.autoTable({
+//             head: [['Product ID', 'Metal', 'Size', 'Main Diamond', 'Side Stone', 'Cost', 'Remark']],
+//             body: tableData,
+//             startY: 40, // Start table below the title and logo
+//         });
+
+//         // Add product ID Counter, total cost, and shipping charges
+//         doc.text(`Product ID Counter: OD${productIDCounter.toString().padStart(3, '0')}`, 10, doc.lastAutoTable.finalY + 10);
+//         doc.text(`Total Product Cost: ₹${calculateTotalCost()}`, 10, doc.lastAutoTable.finalY + 20);
+//         doc.text(`Shipping Charge: ₹${shippingCharge}`, 10, doc.lastAutoTable.finalY + 30);
+//         doc.text(`Grand Total: ₹${calculateTotalCost()}`, 10, doc.lastAutoTable.finalY + 40);
+
+//         // Save the PDF
+//         doc.save('Jewellery_Products_Details.pdf');
+//     };
+
+//     return (
+//         <div className="p-4 mx-auto max-w-screen-2xl md:p-6 2xl:p-10">
+//             <div className="max-w-full mx-auto">
+//                 <div className="flex flex-col gap-3 mb-6 sm:flex-row sm:items-center sm:justify-between">
+//                     <h2 className="font-semibold text-black text-[26px] capitalize">PDF Function</h2>
+//                     <BreadcrumbNav />
+//                 </div>
+
+//                 <div className="container p-4 mx-auto bg-white">
+//                     <h1 className="mb-4 text-2xl font-bold">Jewellery Admin Panel</h1>
+
+//                     <div className="grid grid-cols-2 gap-4 mb-4">
+//                         {/* File input for logo upload */}
+//                         <Input
+//                             type="file"
+//                             onChange={handleLogoChange}
+//                             placeholder="Upload Logo"
+//                         />
+
+//                         <Input
+//                             type="file"
+//                             name="image"
+//                             onChange={handleFileChange}
+//                             placeholder="Product Image"
+//                         />
+//                         <select
+//                             name='metal'
+//                             value={product.metal}
+//                             onChange={handleInputChange}
+//                             className='w-full rounded border border-[var(--border-color)] bg-[rgb(239,244,251)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize '
+//                             placeholder="Select Material"
+//                         >
+// {metalOptions.map(option => (
+//     <option key={option.value} value={option.value}>{option.label}</option>
+// ))}
+//                         </select>
+//                         {product.metal === "Gold" && (
+//                             <>
+//                                 <select
+//                                     name="color"
+//                                     value={product.color}
+//                                     onChange={handleInputChange}
+//                                     className="w-full rounded border border-[var(--border-color)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize"
+//                                     style={{ backgroundColor: product.color }} // Set background dynamically
+//                                     placeholder="Select Gold Color"
+//                                 >
+//                                     {goldColorOptions.map(option => (
+//                                         <option key={option.value} value={option.value}>
+//                                             {option.label}
+//                                         </option>
+//                                     ))}
+//                                 </select>
+//                                 <select
+//                                     name="karat"
+//                                     value={product.karat}
+//                                     onChange={handleInputChange}
+//                                     className='w-full rounded border border-[var(--border-color)] bg-[rgb(239,244,251)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize' placeholder="Select Gold karat"
+//                                 >
+//                                     {goldKaratOptions.map(option => (
+//                                         <option key={option.value} value={option.value}>{option.label}</option>
+//                                     ))}
+//                                 </select>
+//                             </>
+//                         )}
+//                         <Input
+//                             type="text"
+//                             name="size"
+//                             value={product.size}
+//                             onChange={handleInputChange}
+//                             placeholder="Size"
+//                         />
+//                         <Input
+//                             type="text"
+//                             name="mainDiamond"
+//                             value={product.mainDiamond}
+//                             onChange={handleInputChange}
+//                             placeholder="Main Diamond"
+//                         />
+//                         <Input
+//                             type="text"
+//                             name="sideStone"
+//                             value={product.sideStone}
+//                             onChange={handleInputChange}
+//                             placeholder="Side Stone"
+//                         />
+//                         <Input
+//                             type="number"
+//                             name="productCost"
+//                             value={product.productCost}
+//                             onChange={handleInputChange}
+//                             placeholder="Product Cost"
+//                         />
+//                         <Input
+//                             type="text"
+//                             name="remark"
+//                             value={product.remark}
+//                             onChange={handleInputChange}
+//                             placeholder="Remark"
+//                         />
+//                     </div>
+
+//                     <button className="px-4 py-2 text-white bg-blue-500" onClick={addProduct}>
+//                         Add Product
+//                     </button>
+
+//                     <div className="mt-4">
+//                         <h2 className="text-xl font-bold">Products List</h2>
+//                         <ul>
+//                             {products.map((p, index) => (
+//                                 <li key={index} className="mb-2">
+//                                     Product ID Counter: OD{(counter).toString().padStart(3, '0')}: {p.metal}, ₹{p.productCost}
+//                                 </li>
+//                             ))}
+//                         </ul>
+
+//                         <div className="mt-4">
+//                             <label>Shipping Charge:</label>
+//                             <input
+//                                 type="number"
+//                                 value={shippingCharge}
+//                                 onChange={(e) => setShippingCharge(e.target.value)}
+//                             />
+//                         </div>
+
+//                         <div className="mt-4">
+//                             <h3>Total Cost: ₹{calculateTotalCost()}</h3>
+//                         </div>
+
+//                         <button className="px-4 py-2 mt-4 text-white bg-green-500" onClick={exportPDF}>
+//                             Export to PDF
+//                         </button>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default JewelleryAdminPanel;
+import React, { useEffect, useState } from 'react';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 import Input from '../../components/ui/input';
 import BreadcrumbNav from '../../components/ui/breadcrumb';
 import axios from 'axios';
-
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import PDF from './pdfGunrater'
 const JewelleryAdminPanel = () => {
     const [products, setProducts] = useState([]);
     const [product, setProduct] = useState({
@@ -2644,19 +2964,20 @@ const JewelleryAdminPanel = () => {
         productCost: '',
         remark: '',
     });
-    const [productIDCounter, setProductIDCounter] = useState(1);
     const [shippingCharge, setShippingCharge] = useState(0);
-    const [uploadedLogo, setUploadedLogo] = useState(null); // New state for uploaded logo
+    const [uploadedLogo, setUploadedLogo] = useState(null);
+    const [counter, setCounter] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // Handle logo file change (upload)
     const handleLogoChange = (e) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
-                setUploadedLogo(reader.result); // Store the base64 data of the uploaded logo
+                setUploadedLogo(reader.result);
             };
-            reader.readAsDataURL(file); // Convert file to base64 data
+            reader.readAsDataURL(file);
         }
     };
 
@@ -2671,7 +2992,7 @@ const JewelleryAdminPanel = () => {
     };
 
     const addProduct = async () => {
-        const newProductID = `OD${productIDCounter.toString().padStart(3, '0')}`;
+        const newProductID = `OD${counter.toString().padStart(3, '0')}`;
         const newProduct = { ...product, productID: newProductID };
 
         try {
@@ -2679,7 +3000,7 @@ const JewelleryAdminPanel = () => {
 
             if (response.status === 200) {
                 setProducts([...products, newProduct]);
-                setProductIDCounter(productIDCounter + 1);
+                setCounter(counter + 1);
                 setProduct({
                     logo: '',
                     image: '',
@@ -2702,6 +3023,184 @@ const JewelleryAdminPanel = () => {
             alert('There was an error while adding the product.');
         }
     };
+
+    useEffect(() => {
+        const fetchCounter = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/product-counter');
+                setCounter(response.data.counter);
+                setLoading(false);
+            } catch (err) {
+                setError('Error fetching counter');
+                setLoading(false);
+            }
+        };
+
+        fetchCounter();
+    }, []);
+
+    const calculateTotalCost = () => {
+        const totalProductCost = products.reduce((sum, p) => sum + Number(p.productCost || 0), 0);
+        return totalProductCost + Number(shippingCharge || 0);
+    };
+
+    const exportPDF5 = () => {
+        const doc = new jsPDF();
+
+        if (uploadedLogo) {
+            doc.addImage(uploadedLogo, 'PNG', 10, 10, 30, 30); // Adding logo if exists
+        }
+
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString('en-IN', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+        });
+
+        doc.text(`Date: ${formattedDate}`, 50, 30);
+        doc.addImage(products.image, 'PNG', 10, 10, 30, 30);
+        // Prepare table data with images
+        const tableData = products.map((p) => {
+            let imageData = '';
+
+            // Assign the product's image if it exists
+            if (p.image) {
+                imageData = p.image; // Assuming p.image is a valid image URL or Blob
+            }
+
+            return [
+                imageData, // Image will be the first column in the table
+                p.productID,
+                p.metal,
+                p.size,
+                p.color,
+                p.karat,
+                p.mainDiamond,
+                p.sideStone,
+                p.productCost,
+                p.remark,
+            ];
+        });
+
+
+        // Add table to PDF
+        doc.autoTable({
+            head: [['Image', 'Product ID', 'Metal', 'Size', 'Main Diamond', 'Side Stone', 'Cost', 'Remark']],
+            body: tableData,
+            startY: 40,
+            columnStyles: {
+                0: { cellWidth: 30, halign: 'center', valign: 'middle' }, // Styling the image column
+            },
+            didDrawCell: (data) => {
+                // If there is an image data in the current cell, add the image to the cell
+                if (data.column.index === 0 && data.cell.raw) {
+                    const image = new Image();
+                    image.src = data.cell.raw;
+                    image.onload = () => {
+                        doc.addImage(image, 'PNG', data.cell.x + 2, data.cell.y + 2, 25, 25);
+                    };
+                }
+            }
+
+        });
+
+        // Adding total cost details
+        doc.text(`Total Product Cost: ₹${calculateTotalCost()}`, 10, doc.lastAutoTable.finalY + 20);
+        doc.text(`Shipping Charge: ₹${shippingCharge}`, 10, doc.lastAutoTable.finalY + 30);
+        doc.text(`Grand Total: ₹${calculateTotalCost()}`, 10, doc.lastAutoTable.finalY + 40);
+
+        // Save PDF
+        doc.save('Jewellery_Products_Details.pdf');
+
+        // Revoke object URL to free up memory
+        products.forEach(p => {
+            if (p.image) {
+                URL.revokeObjectURL(p.image);
+            }
+        });
+    };
+    const exportPDF = async () => {
+        const doc = new jsPDF();
+
+        // Add logo if exists
+        if (uploadedLogo) {
+            doc.addImage(uploadedLogo, 'PNG', 10, 10, 30, 30); // Adding logo
+        }
+
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString('en-IN', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+        });
+
+        doc.text(`Date: ${formattedDate}`, 50, 30);
+
+        // Add product image (if exists)
+        if (products.image) {
+            doc.addImage(products.image, 'PNG', 10, 10, 30, 30);
+        }
+
+        // Prepare table data with images
+        const tableData = await Promise.all(products.map(async (p) => {
+            let imageData = '';
+
+            // If product has an image, convert it to a base64 string if it's a Blob
+            if (p.image) {
+                if (p.image instanceof Blob) {
+                    imageData = await toBase64(p.image); // Convert Blob to base64
+                } else {
+                    imageData = p.image; // Assuming p.image is a valid URL or base64 string
+                }
+            }
+
+            return [
+                imageData, // Image will be the first column in the table
+                p.productID,
+                p.metal,
+                p.size,
+                p.color,
+                p.karat,
+                p.mainDiamond,
+                p.sideStone,
+                p.productCost,
+                p.remark,
+            ];
+        }));
+
+        // Add table to PDF
+        doc.autoTable({
+            head: [['Image', 'Product ID', 'Metal', 'Size', 'Main Diamond', 'Side Stone', 'Cost', 'Remark']],
+            body: tableData,
+            startY: 40,
+            columnStyles: {
+                0: { cellWidth: 30, halign: 'center', valign: 'middle' }, // Styling the image column
+            },
+        });
+
+        // Adding total cost details
+        doc.text(`Total Product Cost: ₹${calculateTotalCost()}`, 10, doc.lastAutoTable.finalY + 20);
+        doc.text(`Shipping Charge: ₹${shippingCharge}`, 10, doc.lastAutoTable.finalY + 30);
+        doc.text(`Grand Total: ₹${calculateTotalCost() + shippingCharge}`, 10, doc.lastAutoTable.finalY + 40);
+
+        // Save PDF
+        doc.save('Jewellery_Products_Details.pdf');
+
+        // Revoke object URL to free up memory
+        products.forEach(p => {
+            if (p.image) {
+                URL.revokeObjectURL(p.image);
+            }
+        });
+    };
+
+    // Helper function to convert Blob to Base64 string
+    const toBase64 = (blob) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+        });
+    };
+
     const metalOptions = [
         { value: 'select', label: 'Select an option' },
         { value: 'Gold', label: 'Gold' },
@@ -2712,7 +3211,7 @@ const JewelleryAdminPanel = () => {
     const goldColorOptions = [
         { value: 'yellow', label: 'Yellow' },
         { value: 'white', label: 'White' },
-        { value: 'rose', label: 'Rose' },
+        { value: 'pink', label: 'Rose' },
     ];
 
     const goldKaratOptions = [
@@ -2733,32 +3232,22 @@ const JewelleryAdminPanel = () => {
         { value: '23KT', label: '23KT' },
         { value: '24KT', label: '24KT' },
     ]
-    const calculateTotalCost = () => {
-        const totalProductCost = products.reduce((sum, p) => sum + Number(p.productCost || 0), 0);
-        return totalProductCost + Number(shippingCharge || 0);
-    };
-
-    const exportPDF = () => {
+    const exportPDFs = () => {
         const doc = new jsPDF();
 
-        // Check if a logo is uploaded and add it to the PDF
         if (uploadedLogo) {
-            doc.addImage(uploadedLogo, 'PNG', 10, 10, 30, 30); // Adjust position and size as needed
+            doc.addImage(uploadedLogo, 'PNG', 10, 10, 30, 30);
         }
 
-        // Add the title text to the PDF
-        doc.text('Jewellery Products Details', 50, 20); // Adjust position to make space for logo
-
-        // Get current date
         const currentDate = new Date();
         const formattedDate = currentDate.toLocaleDateString('en-IN', {
             weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
         });
 
-        // Add the formatted date
-        doc.text(`Date: ${formattedDate}`, 50, 30); // Adjust the position as needed
+        doc.text(`Date: ${formattedDate}`, 50, 30);
 
-        const tableData = products.map((p, index) => [
+        const tableData = products.map((p) => [
+            p.image,
             p.productID,
             p.metal,
             p.size,
@@ -2770,23 +3259,54 @@ const JewelleryAdminPanel = () => {
             p.remark,
         ]);
 
-        // Add product details table
         doc.autoTable({
-            head: [['Product ID', 'Metal', 'Size', 'Main Diamond', 'Side Stone', 'Cost', 'Remark']],
+            head: [['image', 'Product ID', 'Metal', 'Size', 'Main Diamond', 'Side Stone', 'Cost', 'Remark']],
             body: tableData,
-            startY: 40, // Start table below the title and logo
+            startY: 40,
         });
 
-        // Add product ID Counter, total cost, and shipping charges
-        doc.text(`Product ID Counter: OD${productIDCounter.toString().padStart(3, '0')}`, 10, doc.lastAutoTable.finalY + 10);
         doc.text(`Total Product Cost: ₹${calculateTotalCost()}`, 10, doc.lastAutoTable.finalY + 20);
         doc.text(`Shipping Charge: ₹${shippingCharge}`, 10, doc.lastAutoTable.finalY + 30);
         doc.text(`Grand Total: ₹${calculateTotalCost()}`, 10, doc.lastAutoTable.finalY + 40);
 
-        // Save the PDF
         doc.save('Jewellery_Products_Details.pdf');
     };
+    const generatePDF = () => {
+        const doc = new jsPDF('p', 'mm', 'a4'); // A4 page size in mm
 
+        // Header Section
+        doc.setFont('Arial', 'B', 16);
+        doc.text('Lab Treasure', 105, 20, null, null, 'center');
+        doc.setFont('Arial', '', 12);
+        doc.text('Logo Placeholder', 105, 30, null, null, 'center'); // Replace with actual logo if needed
+
+        // Product Section
+        doc.setFont('Arial', 'B', 14);
+        doc.text('Product Details', 20, 40);
+
+        doc.setFont('Arial', '', 12);
+        doc.text('Gold: 14k', 20, 50);
+        doc.text('Main Diamond: 200gm', 20, 55);
+        doc.text('Side Stone: 100gm', 20, 60);
+        doc.text('Quality: High', 20, 65);
+        doc.text('Size: 20', 20, 70);
+        doc.text('Order Value: ₹12,000/-', 20, 75);
+        doc.text('Color: Yellow', 20, 80);
+        doc.text('Remark: Special Edition', 20, 85);
+        doc.text('Product ID: OD111', 20, 90);
+        doc.text('Total Cost: ₹12,350/-', 20, 95);
+
+        // Footer Section
+        doc.setFont('Arial', 'B', 14);
+        doc.text('Total Products Cost: ₹37,050/-', 20, 260);
+
+        doc.setFont('Arial', '', 12);
+        doc.text('Email: treasurelab@gmail.com', 20, 270);
+        doc.text('Phone: +91 75787 75177', 20, 275);
+
+        // Save the PDF
+        doc.save('product_details.pdf');
+    };
     return (
         <div className="p-4 mx-auto max-w-screen-2xl md:p-6 2xl:p-10">
             <div className="max-w-full mx-auto">
@@ -2799,13 +3319,11 @@ const JewelleryAdminPanel = () => {
                     <h1 className="mb-4 text-2xl font-bold">Jewellery Admin Panel</h1>
 
                     <div className="grid grid-cols-2 gap-4 mb-4">
-                        {/* File input for logo upload */}
                         <Input
                             type="file"
                             onChange={handleLogoChange}
                             placeholder="Upload Logo"
                         />
-
                         <Input
                             type="file"
                             name="image"
@@ -2813,44 +3331,33 @@ const JewelleryAdminPanel = () => {
                             placeholder="Product Image"
                         />
                         <select
-                            name='metal'
+                            name="metal"
                             value={product.metal}
                             onChange={handleInputChange}
-                            className='w-full rounded border border-[var(--border-color)] bg-[rgb(239,244,251)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize '
-                            placeholder="Select Material"
+                            className="w-full rounded border border-[var(--border-color)] bg-[rgb(239,244,251)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize"
                         >
                             {metalOptions.map(option => (
                                 <option key={option.value} value={option.value}>{option.label}</option>
                             ))}
                         </select>
-                        {product.metal === "Gold" && (
+                        {product.metal === 'Gold' && (
                             <>
-                                {/* <Input
-
-                                    name="color"
-                                    value={product.color}
-                                    onChange={handleInputChange}
-                                    placeholder="color"
-                                /> */}
                                 <select
                                     name="color"
                                     value={product.color}
                                     onChange={handleInputChange}
-                                    className="w-full rounded border border-[var(--border-color)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize"
-                                    style={{ backgroundColor: product.color }} // Set background dynamically
-                                    placeholder="Select Gold Color"
+                                    className={`w-full rounded border border-[var(--border-color)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize`}
+                                    style={{ backgroundColor: product.color }}
                                 >
                                     {goldColorOptions.map(option => (
-                                        <option key={option.value} value={option.value}>
-                                            {option.label}
-                                        </option>
+                                        <option key={option.value} value={option.value}>{option.label}</option>
                                     ))}
                                 </select>
                                 <select
                                     name="karat"
-                                    value={product.karat}
+                                    value={product.karat} 
                                     onChange={handleInputChange}
-                                    className='w-full rounded border border-[var(--border-color)] bg-[rgb(239,244,251)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize' placeholder="Select Gold karat"
+                                    className="w-full rounded border border-[var(--border-color)] bg-[rgb(239,244,251)] py-3 px-4 text-black focus:border-[var(--primary-color)] focus-visible:outline-none placeholder:capitalize"
                                 >
                                     {goldKaratOptions.map(option => (
                                         <option key={option.value} value={option.value}>{option.label}</option>
@@ -2904,7 +3411,7 @@ const JewelleryAdminPanel = () => {
                         <ul>
                             {products.map((p, index) => (
                                 <li key={index} className="mb-2">
-                                    Product ID Counter: OD{(productIDCounter).toString().padStart(3, '0')}: {p.metal}, ₹{p.productCost}
+                                    Product ID: {p.productID}: {p.metal}, ₹{p.productCost}
                                 </li>
                             ))}
                         </ul>
@@ -2925,6 +3432,9 @@ const JewelleryAdminPanel = () => {
                         <button className="px-4 py-2 mt-4 text-white bg-green-500" onClick={exportPDF}>
                             Export to PDF
                         </button>
+                        <PDFDownloadLink type='submit' document={<PDF />} fileName="product_details.pdf">
+                            {({ loading }) => (loading ? 'Loading document...' : 'Download PDF')}
+                        </PDFDownloadLink>
                     </div>
                 </div>
             </div>
