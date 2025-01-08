@@ -3099,7 +3099,7 @@ const JewelleryAdminPanel = () => {
     useEffect(() => {
         const fetchCounter = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/products');
+                const response = await axios.get('https://server-cosmatic.vercel.app/api/products');
                 setCounter(response.data.counter);
                 setLoading(false);
             } catch (err) {
