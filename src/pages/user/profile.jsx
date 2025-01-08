@@ -3026,7 +3026,7 @@ const JewelleryAdminPanel = () => {
     });
     const [shippingCharge, setShippingCharge] = useState(0);
     const [uploadedLogo, setUploadedLogo] = useState(null);
-    const [counter, setCounter] = useState(null);
+    const [counter, setCounter] = useState(1);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -3051,38 +3051,7 @@ const JewelleryAdminPanel = () => {
         setProduct({ ...product, [name]: URL.createObjectURL(files[0]) });
     };
 
-    // const addProduct = async () => {
-    //     const newProductID = `OD${counter.toString().padStart(3, '0')}`;
-    //     const newProduct = { ...product, productID: newProductID };
 
-    //     try {
-    //         const response = await axios.post('http://localhost:5000/api/products', newProduct);
-
-    //         if (response.status === 200) {
-    //             setProducts([...products, newProduct]);
-    //             setCounter(counter + 1);
-    //             setProduct({
-    //                 logo: '',
-    //                 image: '',
-    //                 metal: '',
-    //                 color: '',
-    //                 karat: '',
-    //                 size: '',
-    //                 mainDiamond: '',
-    //                 sideStone: '',
-    //                 productCost: '',
-    //                 remark: '',
-    //             });
-
-    //             alert('Product added successfully');
-    //         } else {
-    //             alert('Failed to add product. Try again later.');
-    //         }
-    //     } catch (error) {
-    //         console.error('Error adding product:', error);
-    //         alert('There was an error while adding the product.');
-    //     }
-    // };
     const addProduct = async () => {
         const newProductID = `OD${counter.toString().padStart(3, '0')}`; // Generate the new product ID based on the counter
         const newProduct = { ...product, productID: newProductID }; // Combine the product state with the new product ID
@@ -3130,7 +3099,7 @@ const JewelleryAdminPanel = () => {
     useEffect(() => {
         const fetchCounter = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/product-counter');
+                const response = await axios.get('http://localhost:5000/api/products');
                 setCounter(response.data.counter);
                 setLoading(false);
             } catch (err) {
